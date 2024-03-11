@@ -1,0 +1,770 @@
+  /* body {
+  background: #69c;
+  margin: 0;
+  font-family: arial;
+  width: 100vw;
+  height: 100vh; 
+  animation: bugfix infinite 1s;
+  -webkit-animation: bugfix infinite 1s;
+} 
+
+@keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+#overlay-button {
+  position: absolute;
+  right: 400px;
+  right: 29em;
+  top: 3em;
+  padding: 26px 11px;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+}
+#overlay-button span {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: white;
+  position: relative;
+  display: block;
+  transition: all .2s ease-in-out;
+}
+
+#overlay-button {
+  display: center;
+  justify-content: center;
+} 
+#overlay-button span:before {
+  top: -10px;
+  visibility: visible;
+}
+#overlay-button span:after {
+  top: 10px;
+}
+#overlay-button span:before, #overlay-button span:after {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: white;
+  position: absolute;
+  content: "";
+  transition: all .2s ease-in-out;
+}
+#overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {
+  background: #fff;
+}
+
+input[type=checkbox] {
+  display: none; 
+  
+}
+
+input[type=checkbox]:checked ~ #overlay {
+  visibility: visible; 
+}
+
+input[type=checkbox]:checked ~ #overlay-button:hover img, input[type=checkbox]:checked ~ #overlay-button img {
+  background: transparent;
+  
+  
+}
+input[type=checkbox]:checked ~ #overlay-button span:before {
+  transform: rotate(45deg) translate(7px, 7px);
+
+}
+input[type=checkbox]:checked ~ #overlay-button span:after {
+  transform: rotate(-45deg) translate(7px, -7px);
+
+
+}
+
+#overlay {
+  height: 100vh;
+  width: 100vw;
+  background: #ec6451;
+  z-index: 2;
+  visibility: hidden;
+  position: fixed;
+}
+/* #overlay.active {
+
+} */
+
+#overlay {
+  height: 100%;
+  width: 100%;
+  /* background: rgba(255, 255, 255, .7); */
+  z-index: 2;
+  /* visibility: hidden; */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  backdrop-filter: blur(0);
+}
+
+ #overlay ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  list-style-type: none;
+} 
+ #overlay ul li {
+  padding: 1em;
+}
+ #overlay ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+ #overlay ul li a:hover {
+  color: #000;
+}   
+   
+ #overlay, #overlay-input{
+  display: none;
+ }
+ 
+ #overlay-input:checked ~ #overlay{
+ display: block;
+ }
+
+ /* header:has(#overlay-input:checked) ~ .mySwiper {
+  display: none!important;
+ } */
+
+ #overlay-input, #overlay-button {
+  z-index: 99;
+ }
+
+ #overlay-button {
+  display: block;
+  width: 101px;
+  height: 39px;
+  background: url(../img/original\ website\ \ Logo\ \(1\).jpg) no-repeat;
+  background-size: contain;
+  mix-blend-mode: color-burn;
+  position: absolute;
+  top: 30px;
+  border-radius: 25px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.7);
+ }
+
+#overlay-input:checked ~ #overlay {
+  display: block;
+  backdrop-filter: blur(10px);
+}
+
+header:has(#overlay-input:checked) {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  backdrop-filter: blur(30px);
+  opacity: 0.9;
+}
+
+body:has(#overlay-input:checked) *:not(header, header *) {
+  /* margin-top: 20px; */
+  filter: blur(5px);
+}
+
+/* header */
+header{
+    /* background-color: #69c; */
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 30px 650px; */
+    position: fixed;
+}
+
+.hidden-text{
+  position: fixed;
+  z-index: 999;
+}
+
+
+.logo > img{
+  height: 30px;
+}
+
+body:has(#overlay-input:checked) .container {
+  display: block;
+}
+
+.container {
+  display: none;
+  height: 80px;
+}
+
+body {
+  font-size: 14px;
+}
+
+/* swipe */
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      /* background: #eee; */
+      background-color: #69c;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      background-color: #69c;
+    }
+
+    swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+
+    
+
+/* .slide_children{
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  height: 300px;
+
+}
+
+.slide_children > img{
+  display: block;
+  width: 100%;
+  
+} */
+
+/* Flow */
+.flow_background{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background-color: #69c;
+  color: white;
+  
+ 
+}
+
+.flow{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #69c;
+  font-weight: bold;
+  font-size: 25px;
+  
+}
+
+.overview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overview_contents{
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+
+}
+
+.overview a {
+  text-decoration: none;
+  color: white;
+}
+/* .overview > p:not(span){
+color: white;
+} */
+
+.overview-title{
+  font-size: 70px;
+  letter-spacing: 6px;
+  font-weight: bolder;
+  margin: 60px 0 10px 0;
+}
+
+.black-text {
+    color: black;
+}
+
+.white-text {
+    color: white;
+}
+
+.overview-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+.num1{
+  background-color: #c9a333;
+  color: #000;
+}
+.num2{
+  background-color: #c9a333;
+  color: #000;
+}
+.num3{
+  background-color: #c9a333;
+  color: #000;
+}
+.num4{
+  background-color: #c9a333;
+  color: #000;
+}
+
+.overview-text{
+  text-align: center;
+  margin-top: 13px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+/* pics box */
+
+.tampa_sightseeing{
+  /* background-color: #69c; */
+}
+
+.tampa_sightseeing > h2 , #Sightseeing > h2 ,#food >h2 ,#Event> h2{
+  /* font-size: 50px; */
+  font-size: 2.4rem;
+  text-align: center;
+  color: white;
+  /* justify-content: baseline; */
+  background-color: #69c;
+  margin: 100px;
+  font-weight: bold;
+}
+.contents > img {
+  height: 200px;
+  border-radius: 25px;
+}
+
+#food > .food_img {
+  height: 408px;
+  width: 612px;
+  
+}
+
+
+.tampa_sightseeing > #Event > .event_img{
+  height: 389px;
+  width: 589px;
+}
+
+#tampa, #food{
+  display: flex;
+  flex-direction: row;
+}
+
+#Sightseeing, #Event{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+@media screen and (max-width:780px) {
+  .contents > img {
+    order: 1;
+  }
+  .contents > p {
+    order: 2;
+  }
+
+  main:nth-of-type(odd) section {
+    flex-direction: column-reverse!important;
+  }
+
+  section {
+    flex-wrap: wrap;
+  }
+
+  .contents {
+    padding-bottom: 50px;
+    position: relative;
+  }
+
+  .contents a {
+    position: absolute;
+    bottom: 0;
+  }
+  
+}
+.contents{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  background-color: #69c;
+}
+.description{
+  width: 80%;
+  margin-top: 30px;
+  font-size: 19px;
+  margin-bottom: 20px;
+  }
+
+@media screen and (max-width:920px) {
+  main h2 {
+    font-size: 1.6rem;
+  }
+
+  main h2 span {
+    font-size: 8rem;
+  }
+}
+
+@media screen and (max-width:780px) {
+  body {
+    font-size: 8px;
+  }
+  .contents {
+    flex-direction: column;
+  }
+  
+}
+
+h2 {
+  position: relative;
+   padding: 1.5rem 2rem 1.5rem 160px;
+   border-bottom: 3px solid white;
+   font-size: larger;
+ }
+ 
+ h2 span {
+   font-family: 'Roboto', sans-serif;
+   font-size: 100px;
+   font-size: 10rem;
+   line-height: 1;
+   position: absolute;
+   bottom: -1.6rem;
+   left: 100px;
+   color: white;
+
+ }
+
+ .heading-1 {
+   color: #000;
+   text-align: center;
+   letter-spacing: -.05rem;
+   align-self: flex-start;
+   font-family: Fkgroteskneue, sans-serif;
+   line-height: 2rem;
+   font-weight: bold;
+   
+
+
+ }
+
+ /* .contents {
+  display: flex;
+  flex-direction: column;
+} */
+
+.contents h3 {
+  order: -1; /* move h3 to the top */
+}
+
+.contents a {
+  margin-top: auto; /* push a tag to the bottom */
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 20px;
+  padding: 5px;
+}
+.btn--orange,
+.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a.btn--radius {
+   border-radius: 100px;
+}
+
+
+
+
+ .footer-content{
+     text-align: center;
+     justify-content: center;
+ }
+
+
+
+ /* イベントすらいど */
+
+ #event_1 > h2{
+  font-size: 40px;
+  text-align: center;
+  color: gray;
+  padding-top: 40px;
+ }
+
+ contents > img{
+  height: 150px;
+ }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 1em 1em;
+  text-align: center;
+  color: white;
+  font-size: 0.8em;
+  z-index: 999; /* Ensure the footer stays above other content */
+}
+
+ footer a{
+  color: white;
+  padding-right: 2em;
+
+ }
+
+ .footer-content{
+   /* position: fixed; */
+ }
+
+/* タンパの別ファイルの */
+
+/* .tampa_side\content > h2{
+  font-family: 'Noto Serif JP', sans-serif;
+} */
+
+#heading_sideslide{
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  margin: 120px;
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+*{
+  font-family:  'Montserrat Subrayada', sans-serif;
+}
+
+
+.tampa_sideslide > div {
+  width: 50%;
+}
+
+.tampa_sideslide{
+  display: flex;
+  /* flex-direction: row; */
+  gap: 30px;
+  margin: 0 30px;
+}
+
+.overview > .overview-title{
+  font-family: 'Montserrat Subrayada';
+}
+.tampa_side_img{
+  width: 100%;
+}
+/* .tampa_side\content{
+   display: flex;
+   flex-direction: row;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+section {
+  justify-content: center;
+}
+
+section > div {
+  min-width: 300px;
+}
+
+.contents h3 {
+  font-size: 1.6rem;
+  margin: 10px;
+}
+
+/* section:nth-of-type(odd) {
+  flex-direction: column-reverse!important;
+} */
+
+main h2 {
+  padding: 0;
+  /* display: block; */
+  position: relative;
+  width: 80%;
+}
+
+main h2 .num {
+  font-size: 10rem;
+  line-height: 120px;
+
+}
+
+main h2 .text {
+  font-size: 3.4rem;
+  position: absolute;
+  margin-top: 10px;
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fade-in-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in-out.fade-in {
+  opacity: 1;
+}
+/* tampa.htmlのぶぶん */
+
+
+/* boby{
+  background-image: "";
+} */
+
+
+/* tampa.htmlのgoogle mapの部分 */
+.googlemap-box{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 200px;
+  background-color: #f2efe0;
+}
+.googlemap-access{
+  display: flex;
+  flex-direction: column;
+}
+
+#headingsideslide > .tampa_side_content{
+  font-family: 'Montserrat Subrayada', sans-serif;
+
+}
+
+.tampa_sidecontent > h2, .tampa_side_content > h2{
+  font-weight: bolder;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  font-size: 20px;
+}
+.tampa_sidecontent > p{
+margin-top: 140px;
+font-size: large;
+}
+
+
+.tampa_side_content > p{
+margin-top: 140px;
+}
+
+embed{
+  /* display: none; */
+}
+.googlemap-content > h1{
+font-size: 60px;
+font-family: Arial, Helvetica, sans-serif;
+}
+.googlemap-access{
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
+}
+.googlemap-content{
+  margin-right: 100px;
+}
+
